@@ -1,5 +1,5 @@
-Package: btf
-Title: Basic Topological Form
+Package: gibble
+Title: Basic Topological Form with a Geometry Map
 Version: 0.0.0.9000
 Authors@R: person("Michael", "Sumner", email = "mdsumner@gmail.com", role = c("aut", "cre"))
 Description: Basic topological operations for 'GIS-like' structures require a data model 

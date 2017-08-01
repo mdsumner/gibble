@@ -7,6 +7,8 @@ a <- topoedit.sf(minimal_mesh)
 north_carolina <- read_sf(system.file("shape/nc.shp", package="sf"))
 ## pick one and its neighbours
 library(dplyr)
+library(sc)
+library(scsf)
 set.seed(1)
 path <- sc::PATH(north_carolina)
 sample_feature <- path$object %>% sample_n(1) %>% select(object_, FIPS)

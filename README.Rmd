@@ -20,7 +20,7 @@ The goal of btf is to illustrate how basic topological editing might be provided
 
 ## Example
 
-This is a prototype function for the `mapedit` package. 
+This shows prototype functions for the `mapedit` package. 
 
 ```{r example}
 #' Topological edit
