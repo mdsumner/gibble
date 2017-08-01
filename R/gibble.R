@@ -8,13 +8,15 @@
 #' class of the object, and `object` records an identifier for the entire object. A special case column
 #' `parent` identifies the parent part within a MULTIPOLYGON. I.e. `part` is 1 unless that part is a hole.
 #'
+#' A gibble is not so helpful on its own, it is designed to work within a particular workflow such as
+#' updating the coordinates of model object in a different context.
+#'
 #' A `gibble` is an improvement on the `sc_path` encoding of package `sc`, which is an improvement on the `map_table`
 #' model of `spbabel` which is an improvement on the `sptable` model of spbabel which was an improvment on the `fortify` model
 #' in `ggplot2`.
-#' @param x
-#' @param ...
-#'
-#' @return
+#' @param x geometry model
+#' @param ... arguments reserved for methods, none currently
+#' @return data frame summarizing the geometry map, see `Details`
 #' @export
 #' @importFrom dplyr %>% mutate bind_rows
 #' @importFrom tibble tibble
@@ -26,19 +28,19 @@ gibble <- function(x, ...) UseMethod("gibble")
 gibble.default <- function(x) stop(sprintf("objects of type %s not supported", paste(class(x), collapse = ";")))
 #' @name gibble
 #' @export
-gibble.POINT <- function(x, ...) tibble::tibble(nrow = 1, ncol = length(unclass(x)))
+gibble.POINT <- function(x, ...) tibble::tibble(nrow = 1, ncol = length(unclass(x))) %>% dplyr::mutate(type = "POINT")
 #' @name gibble
 #' @export
-gibble.MULTIPOINT <- function(x, ...) {dm <- dim(unclass(x)); tibble::tibble(nrow = dm[1], ncol = dm[2])}
+gibble.MULTIPOINT <- function(x, ...) {dm <- dim(unclass(x)); tibble::tibble(nrow = dm[1], ncol = dm[2])} %>% dplyr::mutate(type = "MULTIPOINT")
 #' @name gibble
 #' @export
-gibble.LINESTRING <- gibble.MULTIPOINT
+gibble.LINESTRING  <- function(x, ...) {dm <- dim(unclass(x)); tibble::tibble(nrow = dm[1], ncol = dm[2])} %>% dplyr::mutate(type = "LINESTRING")
 #' @name gibble
 #' @export
-gibble.MULTILINESTRING <- function(x, ...) lapply(unclass(x), gibble.MULTIPOINT) %>% dplyr::bind_rows()
+gibble.MULTILINESTRING <- function(x, ...) lapply(unclass(x), gibble.MULTIPOINT) %>% dplyr::bind_rows() %>% dplyr::mutate(type = "MULTILINESTRING")
 #' @name gibble
 #' @export
-gibble.POLYGON <- gibble.MULTILINESTRING
+gibble.POLYGON <- function(x, ...) lapply(unclass(x), gibble.MULTIPOINT) %>% dplyr::bind_rows() %>% dplyr::mutate(type = "POLYGON")
 gibble.POLYPART <- function(x, ...) {
   lapply(x, gibble.MULTIPOINT) %>% dplyr::bind_rows(.id = "part")
 }
@@ -46,12 +48,12 @@ gibble.POLYPART <- function(x, ...) {
 #' @export
 gibble.MULTIPOLYGON <- function(x, ...) {
   x <- unclass(x)
-  lapply(x, gibble.POLYPART) %>% dplyr::bind_rows()
+  lapply(x, gibble.POLYPART) %>% dplyr::bind_rows() %>% dplyr::mutate(type = "MULTIPOLYGON")
 }
 #' @name gibble
 #' @export
 gibble.sfc <- function(x, ...) {
-  lapply(unclass(x), function(g) gibble(g) %>% dplyr::bind_rows() %>% dplyr::mutate(type = rev(class(g))[2])) %>%
+  lapply(unclass(x), function(g) gibble(g) %>% dplyr::bind_rows()) %>%
     dplyr::bind_rows(.id = "object")
 }
 #' @name gibble
