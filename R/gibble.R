@@ -25,7 +25,7 @@
 gibble <- function(x, ...) UseMethod("gibble")
 #' @name gibble
 #' @export
-gibble.default <- function(x) stop(sprintf("objects of type %s not supported", paste(class(x), collapse = ";")))
+gibble.default <- function(x, ...) stop(sprintf("objects of type %s not supported", paste(class(x), collapse = ";")))
 #' @name gibble
 #' @export
 gibble.POINT <- function(x, ...) tibble::tibble(nrow = 1, ncol = length(unclass(x))) %>% dplyr::mutate(type = "POINT")

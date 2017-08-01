@@ -24,7 +24,7 @@
 \usage{
 gibble(x, ...)
 
-\method{gibble}{default}(x)
+\method{gibble}{default}(x, ...)
 
 \method{gibble}{POINT}(x, ...)
 
