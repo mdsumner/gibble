@@ -1,0 +1,76 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# btf
+
+The goal of btf is to illustrate how basic topological editing might be provided via the [mapedit package]( https://CRAN.R-project.org/package=mapedit). 
+
+## Example
+
+This is a prototype function for the `mapedit` package. 
+
+```{r example}
+#' Topological edit
+#' 
+#' A function to illustrate topological editing of simple features
+#'
+#' Note that this uses the sc and scsf packages which have a much
+#' grander goal than de-duplicating vertices and re-composing simple
+#' features. The logic used can be trivially isolated into a small set
+#' of functions for use in mapedit, or perhaps a separate package.
+#'
+#' There interactivity is limited to pure edit of the points with no live redraw.
+#' @param x simple features object, supported by scsf/sc::PATH
+#' @param map mapview object
+#' @export
+#' @importFrom dplyr %>% select bind_cols
+#' @importFrom mapview mapview
+#' @importFrom mapedit editFeatures
+#' @importFrom sf st_as_sf st_crs
+#' @examples
+#' 
+#' data("minimal_mesh")
+#' e1 <- topoedit_sf(minimal_mesh)
+#' library(sf)
+#' op <- par(mfrow = c(2, 1))
+#' plot(st_geometry(minimal_mesh))
+#' plot(e1)
+#' par(op)
+#' mtest <- minimal_mesh
+#' library(sf)
+#' st_crs(mtest) <- "+init=epsg:3857"
+#' data("wrld_simpl", package = "wrld_simpl")
+#' m <- mapview(wrld_simpl)
+#' #topoedit_sf(mtest, m)
+topoedit_sf <- function(x, map = NULL) {
+  ##devtools::install_github("mdsumner/sc")
+  ##devtools::install_github("mdsumner/scsf")
+ # require(scsf)
+ #  require(sc)
+  ## build the topological version
+  ## all we really get are shared vertices for now
+  prim <- btf_PATH(x)
+
+  ## create point-versions we can identify
+  sf_points <- sf::st_as_sf(prim$vertex, coords = c("x_", "y_"), crs = sf::st_crs(x))
+  if (is.null(map)) map <- mapview::mapview()
+  map <- map + mapview::mapview(x) + mapview::mapview(sf_points)
+  edited <- mapedit::editFeatures(sf_points, map = map)
+  prim$vertex <- .btf_set_geometry(edited, NULL) %>% dplyr::select(vertex_) %>% dplyr::bind_cols(sc_coord(edited))
+  build_sf(prim)
+}
+
+```
