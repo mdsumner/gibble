@@ -20,7 +20,7 @@
 \alias{gibble.sfc}
 \alias{gibble}
 \alias{gibble.sf}
-\title{Gibble}
+\title{gibble}
 \usage{
 gibble(x, ...)
 

@@ -1,4 +1,4 @@
-#' Gibble
+#' gibble
 #'
 #' Geometry map in a data frame
 #'
@@ -28,7 +28,7 @@ gibble <- function(x, ...) UseMethod("gibble")
 gibble.default <- function(x, ...) stop(sprintf("objects of type %s not supported", paste(class(x), collapse = ";")))
 #' @name gibble
 #' @export
-gibble.POINT <- function(x, ...) tibble::tibble(nrow = 1, ncol = length(unclass(x))) %>% dplyr::mutate(type = "POINT")
+gibble.POINT <- function(x, ...) tibble::as_tibble(ibble(x)) %>% dplyr::mutate(type = names(types)[type])
 #' @name gibble
 #' @export
 gibble.MULTIPOINT <- function(x, ...) {dm <- dim(unclass(x)); tibble::tibble(nrow = dm[1], ncol = dm[2])} %>% dplyr::mutate(type = "MULTIPOINT")
@@ -53,8 +53,7 @@ gibble.MULTIPOLYGON <- function(x, ...) {
 #' @name gibble
 #' @export
 gibble.sfc <- function(x, ...) {
-  lapply(unclass(x), function(g) gibble(g) %>% dplyr::bind_rows()) %>%
-    dplyr::bind_rows(.id = "object")
+  tibble::as_tibble(ibble(x)) %>% dplyr::mutate(type = names(types)[type])
 }
 #' @name gibble
 #' @export
