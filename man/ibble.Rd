@@ -51,7 +51,7 @@ ibble(x, ...)
 data frame summarizing the geometry map, see `Details`
 }
 \description{
-Geometry map in a data frame
+ibble is the matrix version of gibble, implemented low down for speed
 }
 \details{
 A ibble is map of the geometry structure of an object. Each row of the ibble represents a
