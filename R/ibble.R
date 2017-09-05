@@ -62,8 +62,9 @@ ibble.MULTIPOLYGON <- function(x, ...) {
 #' @name ibble
 #' @export
 ibble.sfc <- function(x, ...) {
-  out <- do.call(rbind,lapply(unclass(x), function(g) ibble(g)))
-  cbind(out, object = seq_len(nrow(out)))
+  x <- unclass(x)
+  out <- do.call(rbind,lapply(seq_along(x), function(gi) cbind(ibble(x[[gi]]), object = gi)))
+  out
 }
 #' @name ibble
 #' @export
