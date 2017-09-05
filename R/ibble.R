@@ -42,7 +42,11 @@ ibble.LINESTRING  <- function(x, ...) {dm <- dim(unclass(x)); cbind(nrow = dm[1]
 ibble.MULTILINESTRING <- function(x, ...) cbind(do.call(rbind, lapply(unclass(x), ibble.MULTIPOINT)), type = 4L)
 #' @name ibble
 #' @export
-ibble.POLYGON <- function(x, ...) cbind(do.call(rbind, lapply(unclass(x), ibble.MULTIPOINT)), type = 5L)
+ibble.POLYGON <- function(x, ...) {
+  out <- do.call(rbind, lapply(unclass(x), ibble.MULTIPOINT))
+  out[, "type"] <- 5L
+  out
+}
 ibble.POLYPART <- function(x, ...) {
  out <- do.call(rbind, lapply(x, ibble.MULTIPOINT))
  cbind(out, part = seq_len(nrow(out)))
