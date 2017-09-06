@@ -16,18 +16,10 @@ knitr::opts_chunk$set(
 
 # gibble
 
-The goal of gibble is to illustrate how basic topological editing might be provided via the [mapedit package]( https://CRAN.R-project.org/package=mapedit). 
+The goal of gibble was to illustrate how basic topological editing might be provided via the [mapedit package]( https://CRAN.R-project.org/package=mapedit). 
 
-## Example
+It helped to consolidate the sf-decompositions tools in silicate. 
 
-This shows prototype functions for the `mapedit` package. 
-
-
-inst/examples/gibble_rebuild.R
-
-
-
-early version: 
 
 https://gist.github.com/mdsumner/4e9ebb4ed9fa03682e58128afa66a16c
 

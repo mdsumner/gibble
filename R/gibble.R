@@ -28,7 +28,7 @@ gibble <- function(x, ...) UseMethod("gibble")
 gibble.default <- function(x, ...) stop(sprintf("objects of type %s not supported", paste(class(x), collapse = ";")))
 #' @name gibble
 #' @export
-gibble.POINT <- function(x, ...) tibble::as_tibble(ibble(x)) %>% dplyr::mutate(type = names(types)[type])
+gibble.POINT <- function(x, ...) {x <- tibble::as_tibble(ibble(x)); dplyr::mutate(x, type = names(types)[x$type])}
 #' @name gibble
 #' @export
 gibble.MULTIPOINT <- function(x, ...) {dm <- dim(unclass(x)); tibble::tibble(nrow = dm[1], ncol = dm[2])} %>% dplyr::mutate(type = "MULTIPOINT")
@@ -57,7 +57,8 @@ gibble.MULTIPOLYGON <- function(x, ...) {
 #' @name gibble
 #' @export
 gibble.sfc <- function(x, ...) {
-  tibble::as_tibble(ibble(x)) %>% dplyr::mutate(type = names(types)[type])
+  x <- tibble::as_tibble(ibble(x))
+  dplyr::mutate(x, type = names(types)[x$type])
 }
 #' @name gibble
 #' @export
