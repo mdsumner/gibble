@@ -41,14 +41,18 @@ gibble.MULTILINESTRING <- function(x, ...) lapply(unclass(x), gibble.MULTIPOINT)
 #' @name gibble
 #' @export
 gibble.POLYGON <- function(x, ...) lapply(unclass(x), gibble.MULTIPOINT) %>% dplyr::bind_rows() %>% dplyr::mutate(type = "POLYGON")
-gibble.POLYPART <- function(x, ...) {
-  lapply(x, gibble.MULTIPOINT) %>% dplyr::bind_rows(.id = "part")
+gibble.POLYPART <- function(x, subobject = 1L, ...) {
+  lapply(x, gibble.MULTIPOINT) %>%
+    dplyr::bind_rows() %>%
+    dplyr::mutate(subobject = subobject)
 }
 #' @name gibble
 #' @export
 gibble.MULTIPOLYGON <- function(x, ...) {
   x <- unclass(x)
-  lapply(x, gibble.POLYPART) %>% dplyr::bind_rows() %>% dplyr::mutate(type = "MULTIPOLYGON")
+  lapply(seq_along(x), function(a) gibble.POLYPART(x[[a]], subobject = a)) %>%
+    dplyr::bind_rows() %>%
+    dplyr::mutate(type = "MULTIPOLYGON")
 }
 #' @name gibble
 #' @export
