@@ -48,25 +48,8 @@ ibble(x, ...)
 \item{...}{arguments reserved for methods, none currently}
 }
 \value{
-data frame summarizing the geometry map, see `Details`
+matrix summarizing the geometry map, see `Details`
 }
 \description{
 ibble is the matrix version of gibble, implemented low down for speed
-}
-\details{
-A ibble is map of the geometry structure of an object. Each row of the ibble represents a
-component element of the object's geometry and records the number of rows (i.e. how many coordinates) and
-the number of columns (i.e. the number of axes in the geometric space). Another column `type` records the
-class of the object, and `object` records an identifier for the entire object. A special case column
-`parent` identifies the parent part within a MULTIPOLYGON. I.e. `part` is 1 unless that part is a hole.
-
-A ibble is not so helpful on its own, it is designed to work within a particular workflow such as
-updating the coordinates of model object in a different context.
-
-A `ibble` is an improvement on the `sc_path` encoding of package `sc`, which is an improvement on the `map_table`
-model of `spbabel` which is an improvement on the `sptable` model of spbabel which was an improvment on the `fortify` model
-in `ggplot2`.
-}
-\examples{
-ibble(minimal_mesh)
 }

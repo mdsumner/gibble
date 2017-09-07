@@ -23,7 +23,7 @@
 \alias{gibble.sfc}
 \alias{gibble}
 \alias{gibble.sf}
-\title{gibble.}
+\title{gibble}
 \usage{
 gibble(x, ...)
 
@@ -54,23 +54,27 @@ gibble(x, ...)
 data frame summarizing the geometry map, see `Details`
 }
 \description{
-gibble.
+Path-based geometry decomposition to data frame.
 
-Geometry map in a data frame
+Geometry map in a data frame. A generic function to summarize the available paths within a
+complex type. Methods are provided for the `sf` classes. There is an internal version that
+is designed to work fast on sets of structures, delaying conversion to list or data frame as late as possible.
 }
 \details{
 A gibble is map of the geometry structure of an object. Each row of the gibble represents a
 component element of the object's geometry and records the number of rows (i.e. how many coordinates) and
 the number of columns (i.e. the number of axes in the geometric space). Another column `type` records the
 class of the object, and `object` records an identifier for the entire object. A special case column
-`parent` identifies the parent part within a MULTIPOLYGON. I.e. `part` is 1 unless that part is a hole.
+`subobject` identifies the component POLYGON part within a MULTIPOLYGON.
+I.e. `subobject` is 1 unless that part is a hole. All identifiers are sequential withi implicit groups.
 
-A gibble is not so helpful on its own, it is designed to work within a particular workflow such as
-updating the coordinates of model object in a different context.
+A gibble is not so helpful on its own, it is designed to work within other workflows such as
+updating the coordinates of model object in a different context or translating between superfically
+different formats.
 
-A `gibble` is an improvement on the `sc_path` encoding of package `sc`, which is an improvement on the `map_table`
-model of `spbabel` which is an improvement on the `sptable` model of spbabel which was an improvment on the `fortify` model
-in `ggplot2`.
+A `gibble` is a distillation of the `sc_path` encoding of package `silicate`. That in turn came
+from the  `map_table` and `sptable` decompositions of spbabel, and all which improve on the
+single-table `fortify` model used in `ggplot2`.
 }
 \examples{
 gibble(minimal_mesh)

@@ -5,5 +5,5 @@
 \alias{minimal_mesh}
 \title{minimal mesh}
 \description{
-basic testing data set
+A testing data set, composed of two MULTIPOLYGONs sharing one edge.
 }

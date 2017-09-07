@@ -3,3 +3,8 @@
 ^data-raw$
 ^README\.Rmd$
 ^README-.*\.png$
+^\.travis\.yml$
+^appveyor\.yml$
+^codecov\.yml$
+^docs$
+^cran-comments\.md$
