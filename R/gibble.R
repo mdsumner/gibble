@@ -9,7 +9,7 @@
 #' the number of columns (i.e. the number of axes in the geometric space). Another column `type` records the
 #' class of the object, and `object` records an identifier for the entire object. A special case column
 #' `subobject` identifies the component POLYGON part within a MULTIPOLYGON.
-#' I.e. `subobject` is 1 unless that part is a hole. All identifiers are sequential withi implicit groups.
+#' I.e. `subobject` is 1 unless that part is a hole. All identifiers are sequential within implicit groups.
 #'
 #' A gibble is not so helpful on its own, it is designed to work within other workflows such as
 #' updating the coordinates of model object in a different context or translating between superfically

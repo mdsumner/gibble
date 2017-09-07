@@ -1,11 +1,11 @@
 Package: gibble
-Title: Basic Topological Form with a Geometry Map
+Title: Component Geometry Decomposition 
 Version: 0.0.1
 Authors@R: person("Michael", "Sumner", email = "mdsumner@gmail.com", role = c("aut", "cre"))
-Description: Basic topological operations for 'GIS-like' structures require a data model 
- with knowledge of the relationships between the elements that compose 'features'. Functions here
- provides this, to facilitate building tools that require decompositions of bespoke types and 
- topology. 
+Description: Translation and restructuring operations for 'GIS-like' and other hierarchical types
+ require a data model with a record of the underlying relationships between elements. The 'gibble'
+ is a data frame 'geometry map', a simple record of the underlying structure in path-based hierarchical 
+ types. There are methods for the classes in the 'sf' package for 'simple features'. 
 Depends: R (>= 3.3.1)
 License: GPL-3
 Encoding: UTF-8
