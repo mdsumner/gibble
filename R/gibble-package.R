@@ -1,7 +1,7 @@
-#' gibble
+#' gibble package
 #'
 #' Path-based geometry decomposition to data frame.
-#' @name gibble
+#' @name gibble-package
 #' @docType package
 NULL
 

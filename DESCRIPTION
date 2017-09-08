@@ -2,10 +2,11 @@ Package: gibble
 Title: Component Geometry Decomposition 
 Version: 0.0.1
 Authors@R: person("Michael", "Sumner", email = "mdsumner@gmail.com", role = c("aut", "cre"))
-Description: Translation and restructuring operations for 'GIS-like' and other hierarchical types
- require a data model with a record of the underlying relationships between elements. The 'gibble'
- is a data frame 'geometry map', a simple record of the underlying structure in path-based hierarchical 
- types. There are methods for the classes in the 'sf' package for 'simple features'. 
+Description: Translation and restructuring operations for planar shapes and
+ other hierarchical types require a data model with a record of the underlying
+ relationships between elements. The gibble() function creates a geometry map,
+ a simple record of the underlying structure in path-based hierarchical types.
+ There are methods for the planar shape types in the 'sf' package. 
 Depends: R (>= 3.3.1)
 License: GPL-3
 Encoding: UTF-8
@@ -15,3 +16,4 @@ Imports: dplyr, tibble
 Suggests: covr
 URL: https://github.com/mdsumner/gibble
 BugReports: https://github.com/mdsumner/gibble/issues
+Roxygen: list(markdown = TRUE)
