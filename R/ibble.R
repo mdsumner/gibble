@@ -1,4 +1,4 @@
-types <- c(POINT = 1L, MULTIPOINT = 2L, LINESTRING = 3L, MULTILINESTRING = 4L, POLYGON = 5L, MULTIPOLYGON = 6L)
+types <- c(POINT = 1L, MULTIPOINT = 2L, LINESTRING = 3L, MULTILINESTRING = 4L, POLYGON = 5L, MULTIPOLYGON = 6L, Polygons = 7L, Lines = 8L, Points = 9L, MultiPoints = 10L)
 
 ibble <- function(x, ...) UseMethod("ibble")
 ibble.default <- function(x, ...) stop(sprintf("objects of type %s not supported", paste(class(x), collapse = ";")))
@@ -33,3 +33,4 @@ ibble.sfc <- function(x, ...) {
 ibble.sf <- function(x, ...) {
   ibble(x[[attr(x, "sf_column")]])
 }
+

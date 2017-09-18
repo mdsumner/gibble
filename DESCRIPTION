@@ -1,6 +1,6 @@
 Package: gibble
 Title: Component Geometry Decomposition 
-Version: 0.0.1
+Version: 0.0.1.9001
 Authors@R: person("Michael", "Sumner", email = "mdsumner@gmail.com", role = c("aut", "cre"))
 Description: Translation and restructuring operations for planar shapes and
  other hierarchical types require a data model with a record of the underlying
