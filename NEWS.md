@@ -1,6 +1,6 @@
 # gibble dev
 
-* Added `sp` support. 
+* Added `sp` , `trip` support. 
 
 # gibble 0.0.1
 

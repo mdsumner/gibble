@@ -11,7 +11,18 @@ ibble.SpatialPoints <- function(x, ...) cbind(nrow = rep(1L, nrow(slot(x, "coord
 ibble.SpatialMultiPoints <- function(x, ...) do.call(rbind, lapply(slot(x, "coords"), function(a) cbind(nrow = nrow(a), ncol = 2L, type = 10L)))
 
 
-
+ibble.trip <- function(x, ...) {
+  ## treat this like multipoint
+  tor <- slot(x, "TOR.columns")
+  cbind(nrow = tapply(x[[tor[2L]]], x[[tor[2L]]], length),
+        ncol = 3L, type = NA_integer_)
+}
+#' @export
+gibble.trip <- function(x, ...) {
+  out <- tibble::as_tibble(ibble(x, ...))
+  out[["type"]] <- "trip"
+  out
+}
 #' @export
 gibble.Polygon <- function(x, ...) {
   out <- tibble::as_tibble(ibble(x, ...))
