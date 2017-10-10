@@ -14,8 +14,9 @@ ibble.SpatialMultiPoints <- function(x, ...) do.call(rbind, lapply(slot(x, "coor
 ibble.trip <- function(x, ...) {
   ## treat this like multipoint
   tor <- slot(x, "TOR.columns")
-  cbind(nrow = tapply(x[[tor[2L]]], x[[tor[2L]]], length),
-        ncol = 3L, type = NA_integer_)
+  trip_ids <- x[[tor[2L]]]
+  cbind(nrow = tapply(trip_ids, trip_ids, length),
+        ncol = 3L, type = NA_integer_, object = seq_along(unique(trip_ids)))
 }
 #' @export
 gibble.trip <- function(x, ...) {

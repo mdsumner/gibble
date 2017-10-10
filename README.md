@@ -6,6 +6,4 @@ gibble
 
 The goal of gibble was to illustrate how basic topological editing might be provided via the [mapedit package](https://CRAN.R-project.org/package=mapedit).
 
-It also helped to consolidate the sf-decompositions tools in [silicate](https://github.com/hypertidy/silicate).
-
-<https://gist.github.com/mdsumner/4e9ebb4ed9fa03682e58128afa66a16c>
+It also helped to consolidate the sf-decomposition tools in [silicate](https://github.com/hypertidy/silicate).

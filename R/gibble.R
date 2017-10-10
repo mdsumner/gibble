@@ -36,3 +36,9 @@ gibble <- function(x, ...) UseMethod("gibble")
 
 #' @export
 gibble.default <- function(x, ...) stop(sprintf("objects of type %s not supported", paste(class(x), collapse = ";")))
+
+#' @export
+gibble.PATH <- function(x, ...) {
+  inner_join(x[["path"]], x[["path_link_vertex"]] %>% group_by(path) %>% summarize(nrow = n()) ) %>%
+    dplyr::mutate(ncol = 2, type = "MULTILINESTRING")
+}

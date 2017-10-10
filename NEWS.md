@@ -1,6 +1,6 @@
 # gibble dev
 
-* Added `sp` , `trip` support. 
+* Added `PATH`, `sp` , `trip` methods for `gibble`. 
 
 # gibble 0.0.1
 
