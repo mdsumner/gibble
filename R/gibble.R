@@ -1,3 +1,7 @@
+ibble <- function(x, ...) UseMethod("ibble")
+ibble.default <- function(x, ...) stop(sprintf("objects of type %s not supported", paste(class(x), collapse = ";")))
+
+
 #'Path-based geometry decomposition
 #'
 #'A gibble is a geometry map, a summary of the structure of each path within a
@@ -39,6 +43,10 @@ gibble.default <- function(x, ...) stop(sprintf("objects of type %s not supporte
 
 #' @export
 gibble.PATH <- function(x, ...) {
-  inner_join(x[["path"]], x[["path_link_vertex"]] %>% group_by(path) %>% summarize(nrow = n()) ) %>%
-    dplyr::mutate(ncol = 2, type = "MULTILINESTRING")
+  p <- x[["path"]]
+  tibble::tibble(nrow = p[["ncoords_"]],
+                 ncol = p[["ncol"]],
+                 type = p[["type"]],
+                 subobject = p[["subobject"]],
+                 object = p[["object"]])
 }

@@ -1,10 +1,10 @@
 types <- c(POINT = 1L, MULTIPOINT = 2L, LINESTRING = 3L, MULTILINESTRING = 4L, POLYGON = 5L, MULTIPOLYGON = 6L, Polygons = 7L, Lines = 8L, Points = 9L, MultiPoints = 10L)
 
-ibble <- function(x, ...) UseMethod("ibble")
-ibble.default <- function(x, ...) stop(sprintf("objects of type %s not supported", paste(class(x), collapse = ";")))
 ibble.POINT <- function(x, ...) cbind(nrow = 1, ncol = length(unclass(x)), type = 1L)
 ibble.MULTIPOINT <- function(x, ...) {dm <- dim(unclass(x)); cbind(nrow = dm[1], ncol = dm[2], type = 2L)}
 ibble.LINESTRING  <- function(x, ...) {dm <- dim(unclass(x)); cbind(nrow = dm[1], ncol = dm[2], type = 3L)}
+
+
 ibble.MULTILINESTRING <- function(x, ...) {
   out <- do.call(rbind, lapply(unclass(x), ibble.MULTIPOINT))
   out[, "type"] <- 4L
@@ -25,6 +25,7 @@ ibble.MULTIPOLYGON <- function(x, ...) {
   out[, "type"] <- 6L
   out
 }
+
 ibble.sfc <- function(x, ...) {
   x <- unclass(x)
   out <- do.call(rbind,lapply(seq_along(x), function(gi) cbind(ibble(x[[gi]]), object = gi)))
