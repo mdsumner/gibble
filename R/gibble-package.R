@@ -11,3 +11,10 @@ NULL
 #' @name minimal_mesh
 #' @docType data
 NULL
+
+#' hsh, home sweet home
+#'
+#' A testing data set, a list of poly, line, points
+#' @name hsh
+#' @docType data
+NULL
