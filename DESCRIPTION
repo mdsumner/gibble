@@ -8,7 +8,7 @@ Description: Build a map of path-based geometry, this is a simple description of
  relationships between elements. The gibble() function creates a geometry map, a simple record of 
  the underlying structure in path-based hierarchical types. There are methods for the planar shape 
  types in the 'sf' and 'sp' packages. 
-Depends: R (>= 3.3.1)
+Depends: R (>= 3.3.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
