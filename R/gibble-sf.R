@@ -28,6 +28,16 @@ gibble.MULTIPOLYGON <- function(x, ...) {
 }
 
 #' @export
+gibble.list <- function(x, ...) {
+  ## this is a bit heinous, but basically we've been given an unclassed list
+  ## and it *might* be a sfc, and some time in the future we will need a more
+  ## nuanced approach to list-cols, because note that not only do we
+  ## not have have other ibble class-methods, we are not dispatching on sfc here ...
+  out <- try(ibble.sfc(x), silent = TRUE)
+  if (inherits(out, "try-error")) stop("we tried to interpret as an sf/sfc list-column but failed")
+  dplyr::mutate(tibble::as_tibble(out), type = names(types)[out[, "type", drop = TRUE]])
+}
+#' @export
 gibble.sfc <- function(x, ...) {
   x <- tibble::as_tibble(ibble(x))
   dplyr::mutate(x, type = names(types)[x$type])
