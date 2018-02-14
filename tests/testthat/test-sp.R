@@ -19,7 +19,7 @@ LS <- SLS@lines[[1]]
 test_that("sp ibble works", {
   dSPS <- ibble(SPS)
   expect_that(dim(dSPS), equals(c(9L, 5L)))
-  dSLS <- ibble(SLS)
+  dSLS <- ibble(SLS, 1)
   expect_that(dim(dSLS), equals(c(9L, 5L)))
 
   dMPS <- ibble(MPS)
@@ -35,7 +35,7 @@ test_that("sp ibble works", {
   expect_that(dim(dL), equals(c(1L, 3L)))
 
   dLS <- ibble(LS)
-  expect_that(dim(dLS), equals(c(6L, 4L)))
+  expect_that(dim(dLS), equals(c(6L, 5L)))
 
 })
 
@@ -54,7 +54,7 @@ test_that("sp gibble methods exist", {
      expect_named(c("nrow", "ncol", "type", "subobject", "object"))
 
    gibble.Lines(LS) %>% expect_s3_class("tbl_df") %>%
-     expect_named(c("nrow", "ncol", "type", "subobject"))
+     expect_named(c("nrow", "ncol", "type", "subobject", "object"))
 
    gibble.Polygon(P) %>% expect_s3_class("tbl_df") %>%
      expect_named(c("nrow", "ncol", "type", "subobject"))
@@ -77,7 +77,7 @@ test_that("sp dispatch works", {
     expect_named(c("nrow", "ncol", "type", "subobject", "object"))
 
   gibble(LS) %>% expect_s3_class("tbl_df") %>%
-    expect_named(c("nrow", "ncol", "type", "subobject"))
+    expect_named(c("nrow", "ncol", "type", "subobject", "object"))
 
   gibble(P) %>% expect_s3_class("tbl_df") %>%
     expect_named(c("nrow", "ncol", "type", "subobject"))
@@ -85,3 +85,12 @@ test_that("sp dispatch works", {
   gibble(L) %>% expect_s3_class("tbl_df") %>%
     expect_named(c("nrow", "ncol", "type"))
 })
+
+
+test_that("tests from silicate work", {
+  spobj <- minimal_mesh_sp
+  splineobj <- minimal_mesh_sp_line
+  gibble(spobj) %>% expect_s3_class("tbl_df")
+  gibble(splineobj) %>% expect_s3_class("tbl_df")
+}
+)

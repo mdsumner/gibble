@@ -7,8 +7,11 @@ NULL
 
 #' minimal mesh
 #'
-#' A testing data set, composed of two MULTIPOLYGONs sharing one edge.
+#' A testing data set, `minimal_mesh` composed of two MULTIPOLYGONs sharing one edge.
+#' Also available are `minimal_mesh_sp` and `minimal_mesh_sp_line` in
+#' `SpatialPolygonsDataFrame`` and `SpatialLinesDataFrame`` form, respectively.
 #' @name minimal_mesh
+#' @aliases minimal_mesh_sp minimal_mesh_sp_line
 #' @docType data
 NULL
 
