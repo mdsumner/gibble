@@ -1,16 +1,16 @@
-
+#' @name gibble
 #' @export
 gibble.POINT <- function(x, ...) {x <- tibble::as_tibble(ibble(x)); dplyr::mutate(x, type = names(types)[x$type])}
-
+#' @name gibble
 #' @export
 gibble.MULTIPOINT <- function(x, ...) {dm <- dim(unclass(x)); tibble::tibble(nrow = dm[1], ncol = dm[2])} %>% dplyr::mutate(type = "MULTIPOINT")
-
+#' @name gibble
 #' @export
 gibble.LINESTRING  <- function(x, ...) {dm <- dim(unclass(x)); tibble::tibble(nrow = dm[1], ncol = dm[2])} %>% dplyr::mutate(type = "LINESTRING")
-
+#' @name gibble
 #' @export
 gibble.MULTILINESTRING <- function(x, ...) lapply(unclass(x), gibble.MULTIPOINT) %>% dplyr::bind_rows() %>% dplyr::mutate(type = "MULTILINESTRING")
-
+#' @name gibble
 #' @export
 gibble.POLYGON <- function(x, ...) lapply(unclass(x), gibble.MULTIPOINT) %>% dplyr::bind_rows() %>% dplyr::mutate(type = "POLYGON")
 gibble.POLYPART <- function(x, subobject = 1L, ...) {
@@ -18,7 +18,7 @@ gibble.POLYPART <- function(x, subobject = 1L, ...) {
     dplyr::bind_rows() %>%
     dplyr::mutate(subobject = subobject)
 }
-
+#' @name gibble
 #' @export
 gibble.MULTIPOLYGON <- function(x, ...) {
   x <- unclass(x)
@@ -26,7 +26,7 @@ gibble.MULTIPOLYGON <- function(x, ...) {
     dplyr::bind_rows() %>%
     dplyr::mutate(type = "MULTIPOLYGON")
 }
-
+#' @name gibble
 #' @export
 gibble.list <- function(x, ...) {
   ## this is a bit heinous, but basically we've been given an unclassed list
@@ -37,12 +37,13 @@ gibble.list <- function(x, ...) {
   if (inherits(out, "try-error")) stop("we tried to interpret as an sf/sfc list-column but failed")
   dplyr::mutate(tibble::as_tibble(out), type = names(types)[out[, "type", drop = TRUE]])
 }
+#' @name gibble
 #' @export
 gibble.sfc <- function(x, ...) {
   x <- tibble::as_tibble(ibble(x))
   dplyr::mutate(x, type = names(types)[x$type])
 }
-
+#' @name gibble
 #' @export
 gibble.sf <- function(x, ...) {
   gibble(x[[attr(x, "sf_column")]])

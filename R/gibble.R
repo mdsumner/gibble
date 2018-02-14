@@ -37,10 +37,10 @@ ibble.default <- function(x, ...) stop(sprintf("objects of type %s not supported
 #' @examples
 #' gibble(minimal_mesh)
 gibble <- function(x, ...) UseMethod("gibble")
-
+#' @name gibble
 #' @export
 gibble.default <- function(x, ...) stop(sprintf("objects of type %s not supported", paste(class(x), collapse = ";")))
-
+#' @name gibble
 #' @export
 gibble.PATH <- function(x, ...) {
   p <- x[["path"]]

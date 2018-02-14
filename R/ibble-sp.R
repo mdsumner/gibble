@@ -22,10 +22,16 @@ ibble.SpatialPolygons <- function(x, ...) {
   gx <- slot(x, "polygons")
   cbind(do.call(rbind, lapply(gi, function(a) ibble_Polygons(gx[[a]], gi[a]))))
 }
-ibble.Lines <- function(x, ...) do.call(rbind, lapply(slot(x, "Lines"), ibble.Line))
+ibble.Lines <- function(x, ...) {
+  out <- do.call(rbind, lapply(slot(x, "Lines"), ibble.Line))
+  cbind(out, subobject = seq_len(nrow(out)))
+}
 
 ## see here how we need to call the S3 method directly, not sure ... 2017-12-21
-ibble.SpatialLines <- function(x, ...) do.call(rbind, lapply(slot(x, "lines"), ibble.Lines))
+ibble.SpatialLines <- function(x, ...) {
+  out <- do.call(rbind, lapply(slot(x, "lines"), ibble.Lines))
+  cbind(out, object = seq_along(slot(x, "lines")))
+}
 ibble.SpatialPoints <- function(x, ...) cbind(nrow = rep(1L, nrow(slot(x, "coords"))), ncol = 2L, type = 9L)
 ibble.SpatialMultiPoints <- function(x, ...) do.call(rbind, lapply(slot(x, "coords"), function(a) cbind(nrow = nrow(a), ncol = 2L, type = 10L)))
 
