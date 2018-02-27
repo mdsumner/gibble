@@ -23,7 +23,7 @@ test_that("sp ibble works", {
   expect_that(dim(dSLS), equals(c(9L, 5L)))
 
   dMPS <- ibble(MPS)
-  expect_that(dim(dMPS), equals(c(3L, 3L)))
+  expect_that(dim(dMPS), equals(c(3L, 4L)))
 
   dP <- ibble(P)
   expect_that(dim(dP), equals(c(1L, 4L)))
@@ -48,7 +48,7 @@ test_that("sp gibble methods exist", {
      expect_named(c("nrow", "ncol", "type", "subobject", "object"))
 
    gibble.SpatialMultiPoints(MPS) %>% expect_s3_class("tbl_df") %>%
-     expect_named(c("nrow", "ncol", "type"))
+     expect_named(c("nrow", "ncol", "type", "object"))
 
    gibble.Polygons(PS) %>% expect_s3_class("tbl_df") %>%
      expect_named(c("nrow", "ncol", "type", "subobject", "object"))
@@ -71,7 +71,7 @@ test_that("sp dispatch works", {
     expect_named(c("nrow", "ncol", "type", "subobject", "object"))
 
   gibble(MPS) %>% expect_s3_class("tbl_df") %>%
-    expect_named(c("nrow", "ncol", "type"))
+    expect_named(c("nrow", "ncol", "type", "object"))
 
   gibble(PS) %>% expect_s3_class("tbl_df") %>%
     expect_named(c("nrow", "ncol", "type", "subobject", "object"))
@@ -92,5 +92,9 @@ test_that("tests from silicate work", {
   splineobj <- minimal_mesh_sp_line
   gibble(spobj) %>% expect_s3_class("tbl_df")
   gibble(splineobj) %>% expect_s3_class("tbl_df")
+
+  expect_that(gibble(hsh$line)$object, equals(c(1, 1, 1, 1, 1, 1, 2, 3, 3)))
+  expect_that(gibble(MPS)$object, equals(c(1L, 2L, 3L)))
+
 }
 )

@@ -4,8 +4,6 @@
 ## it's the sequential sum of this that correctly groups polygons within
 ## multipolygons in SF
 ibble.Polygon <- function(x, ...) cbind(nrow = nrow(slot(x, "coords")), ncol = 2L, type = 7L, subobject = slot(x, "hole") == 0L)
-ibble.Line <- function(x, ...) cbind(nrow = nrow(slot(x, "coords")), ncol = 2L, type = 8L)
-
 ibble.Polygons <- function(x, ...) ibble_Polygons(x, object = 1L, ...)
 ibble_Polygons <- function(x, object,  ...) {
   ## see here how we need to call the S3 method directly, not sure ... 2017-12-21
@@ -20,9 +18,13 @@ ibble_Polygons <- function(x, object,  ...) {
 ibble.SpatialPolygons <- function(x, ...) {
   gi <- seq_along(x)
   gx <- slot(x, "polygons")
+
   cbind(do.call(rbind, lapply(gi, function(a) ibble_Polygons(gx[[a]], gi[a]))))
 }
-ibble.Lines <- function(x, ...) ibble_Lines(x, object = 1L, ...)
+
+
+ibble.Line <- function(x, ...) cbind(nrow = nrow(slot(x, "coords")), ncol = 2L, type = 8L)
+ibble.Lines <- function(x, object = 1L, ...) ibble_Lines(x, object = object, ...)
 ibble_Lines <- function(x, object, ...) {
   out <- do.call(rbind, lapply(slot(x, "Lines"), ibble.Line))
   cbind(out, subobject = 1, object = object)
@@ -34,9 +36,18 @@ ibble.SpatialLines <- function(x, ...) {
   do.call(rbind, lapply(seq_along(lines), function(line) ibble.Lines(lines[[line]], line)))
 
 }
-ibble.SpatialPoints <- function(x, ...) cbind(nrow = rep(1L, nrow(slot(x, "coords"))), ncol = 2L, type = 9L)
-ibble.SpatialMultiPoints <- function(x, ...) do.call(rbind, lapply(slot(x, "coords"), function(a) cbind(nrow = nrow(a), ncol = 2L, type = 10L)))
 
+
+
+
+
+ibble.SpatialPoints <- function(x, ...) cbind(nrow = rep(1L, nrow(slot(x, "coords"))), ncol = 2L, type = 9L)
+ibble.SpatialMultiPoints <- function(x, ...) {
+  out <- do.call(rbind, lapply(slot(x, "coords"),
+                function(a) cbind(nrow = nrow(a), ncol = 2L, type = 10L)))
+ out <- cbind(out, object = seq_len(nrow(out)))
+ out
+}
 
 ibble.trip <- function(x, ...) {
   ## treat this like multipoint

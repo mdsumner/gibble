@@ -7,3 +7,15 @@
 \description{
 Path-based geometry decomposition to data frame.
 }
+\details{
+The goal of gibble is to provide a straightforward map of path-based data
+structures. Paths are connected linear sequences of coordinates, otherwise
+known as \emph{lines}. Structured spatial data includes \emph{objects} composed of
+\emph{paths}, which are islands, holes within island, lines, and points. Polygons
+require an extra grouping level \emph{subobject} to ensure holes are nested
+within their island, but this is ignored for other types.
+
+Sequential inear structures are not optimal for many operations when
+working with spatial data, and gibble provides a simple bridge between
+existing paths and tools to decompose them to primitives.
+}
