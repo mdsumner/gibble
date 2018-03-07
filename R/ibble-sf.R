@@ -12,7 +12,7 @@ ibble.MULTILINESTRING <- function(x, ...) {
   out
 }
 ibble.POLYGON <- function(x, ...) {
-  out <- do.call(rbind, lapply(unclass(x), ibble.MULTITHING))
+  out <- cbind(do.call(rbind, lapply(unclass(x), ibble.MULTITHING)), subobject = 1L)
   out[, "type"] <- 5L
   out
 }
