@@ -23,7 +23,7 @@ test_that("sp ibble works", {
   expect_that(dim(dSLS), equals(c(9L, 5L)))
 
   dMPS <- ibble(MPS)
-  expect_that(dim(dMPS), equals(c(3L, 4L)))
+  expect_that(dim(dMPS), equals(c(50L, 4L)))
 
   dP <- ibble(P)
   expect_that(dim(dP), equals(c(1L, 4L)))
@@ -94,7 +94,7 @@ test_that("tests from silicate work", {
   gibble(splineobj) %>% expect_s3_class("tbl_df")
 
   expect_that(gibble(hsh$line)$object, equals(c(1, 1, 1, 1, 1, 1, 2, 3, 3)))
-  expect_that(gibble(MPS)$object, equals(c(1L, 2L, 3L)))
+  expect_that(gibble(MPS)$object, equals(rep(c(1L, 2L, 3L), c(32, 6, 12))))
 
 }
 )

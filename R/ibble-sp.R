@@ -43,9 +43,10 @@ ibble.SpatialLines <- function(x, ...) {
 
 ibble.SpatialPoints <- function(x, ...) cbind(nrow = rep(1L, nrow(slot(x, "coords"))), ncol = 2L, type = 9L)
 ibble.SpatialMultiPoints <- function(x, ...) {
+  nr <- unlist(lapply(slot(x, "coords"), function(a) dim(a)[1L]))
   out <- do.call(rbind, lapply(slot(x, "coords"),
-                function(a) cbind(nrow = nrow(a), ncol = 2L, type = 10L)))
- out <- cbind(out, object = seq_len(nrow(out)))
+                function(a) cbind(nrow = rep(1L, nrow(a)), ncol = 2L, type = 10L)))
+ out <- cbind(out, object = rep(seq_along(nr), nr))
  out
 }
 

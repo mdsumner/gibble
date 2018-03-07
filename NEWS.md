@@ -1,5 +1,7 @@
 # gibble dev
 
+* Fixed multipoints for silicate, both sf and sp. 
+
 * Fixes for SpatialLines and SpatialMultiPoints, found in anglr. 
 
 # gibble 0.0.2
