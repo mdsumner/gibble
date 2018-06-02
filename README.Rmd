@@ -24,7 +24,7 @@ structures. Paths are connected linear sequences of coordinates, otherwise known
 
 The map is simply a record of the path, its size (number of vertices and geometric dimension), its groupings (which object and subobject), and its type (something like "polygon", "line", "point").  Internally a bare functionality works with matrices and all numeric values, but gibble then turns this set of values into a data frame where entities can be labelled arbitrarily. 
 
-Sequential inear structures are not optimal for many operations when
+Sequential linear structures are not optimal for many operations when
 working with spatial data, and in particular they cannot describe surfaces
 in 3D geometry because they are inherently, *topologically*, one-dimensional. Gibble provides a simple bridge between
 path and primitive types, which do generalize to any topological dimension. Gibble considers a point to 
