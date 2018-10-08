@@ -1,4 +1,4 @@
-# gibble dev
+# gibble 0.1.0
 
 * Fixed multipoints for silicate, both sf and sp. 
 
