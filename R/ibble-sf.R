@@ -27,7 +27,7 @@ ibble.POLYPART <- function(x, subobject = 1L, ...) {
 ibble.MULTIPOLYGON <- function(x, ...) {
   x <- unclass(x)
   out <- do.call(rbind, lapply(seq_along(x), function(a) ibble.POLYPART(x[[a]], subobject = a)))
-  if (length(out) == 0L) out <- cbind(nrow = 0, ncol = NA_integer_, type = NA_integer_)
+  if (length(out) == 0L) out <- cbind(nrow = 0, ncol = NA_integer_, type = NA_integer_, subobject = 1L)
   out[, "type"] <- 6L
   out
 }
