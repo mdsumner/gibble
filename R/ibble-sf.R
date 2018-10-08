@@ -14,6 +14,8 @@ ibble.MULTILINESTRING <- function(x, ...) {
 }
 ibble.POLYGON <- function(x, ...) {
   out <- cbind(do.call(rbind, lapply(unclass(x), ibble.MULTITHING)), subobject = 1L)
+  ## untested, but works for multipolygon
+  if (length(out) == 0L) out <- cbind(nrow = 0, ncol = NA_integer_, type = NA_integer_)
   out[, "type"] <- 5L
   out
 }
