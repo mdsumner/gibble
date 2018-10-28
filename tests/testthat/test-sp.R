@@ -5,7 +5,7 @@ data("hsh", package = "gibble")
 SPS <- hsh[["poly"]]
 SLS <- hsh[["line"]]
 MPS <- hsh[["point"]]
-
+P1 <- as(MPS, "SpatialPoints")
 ## a Polygon
 P <- SPS@polygons[[1]]@Polygons[[1]]
 ## a Polygons
@@ -24,6 +24,9 @@ test_that("sp ibble works", {
 
   dMPS <- ibble(MPS)
   expect_that(dim(dMPS), equals(c(50L, 4L)))
+
+  dP1 <- ibble(P1)
+  expect_that(dim(dP1), equals(c(50L, 4L)))
 
   dP <- ibble(P)
   expect_that(dim(dP), equals(c(1L, 4L)))
@@ -50,6 +53,9 @@ test_that("sp gibble methods exist", {
    gibble.SpatialMultiPoints(MPS) %>% expect_s3_class("tbl_df") %>%
      expect_named(c("nrow", "ncol", "type", "object"))
 
+   gibble.SpatialPoints(MPS) %>% expect_s3_class("tbl_df") %>%
+     expect_named(c("nrow", "ncol", "type", "object"))
+
    gibble.Polygons(PS) %>% expect_s3_class("tbl_df") %>%
      expect_named(c("nrow", "ncol", "type", "subobject", "object"))
 
@@ -71,6 +77,9 @@ test_that("sp dispatch works", {
     expect_named(c("nrow", "ncol", "type", "subobject", "object"))
 
   gibble(MPS) %>% expect_s3_class("tbl_df") %>%
+    expect_named(c("nrow", "ncol", "type", "object"))
+
+  gibble(P1) %>% expect_s3_class("tbl_df") %>%
     expect_named(c("nrow", "ncol", "type", "object"))
 
   gibble(PS) %>% expect_s3_class("tbl_df") %>%

@@ -1,3 +1,7 @@
+# dev
+
+* SpatialPoints was has object column, needed for silicate. 
+
 # gibble 0.1.0
 
 * Fixed multipoints for silicate, both sf and sp. 
