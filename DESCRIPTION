@@ -1,6 +1,6 @@
 Package: gibble
 Title: Geometry Decomposition 
-Version: 0.1.1
+Version: 0.1.1.9000
 Authors@R: person("Michael", "Sumner", email = "mdsumner@gmail.com", role = c("aut", "cre"))
 Description: Build a map of path-based geometry, this is a simple description of the number
  of parts in an object and their basic structure. Translation and restructuring operations for 

@@ -1,4 +1,4 @@
-# dev
+# gibble 0.1.1.9000
 
 * SpatialPoints was has object column, needed for silicate. 
 
