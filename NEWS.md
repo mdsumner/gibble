@@ -1,4 +1,6 @@
-# gibble 0.1.1.9000
+# gibble 0.1.1.9001
+
+* Fix gibble for PATH objects from silicate (when they are points). 
 
 * SpatialPoints was has object column, needed for silicate. 
 

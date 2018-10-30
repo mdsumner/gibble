@@ -44,9 +44,11 @@ gibble.default <- function(x, ...) stop(sprintf("objects of type %s not supporte
 #' @export
 gibble.PATH <- function(x, ...) {
   p <- x[["path"]]
-  tibble::tibble(nrow = p[["ncoords_"]],
+  out <- tibble::tibble(nrow = p[["ncoords_"]],
                  ncol = p[["ncol"]],
                  type = p[["type"]],
-                 subobject = p[["subobject"]],
+                 #subobject = p[["subobject"]],
                  object = p[["object"]])
+  if ("subobject" %in% names(p)) out[["subobject"]] <- p[["subobject"]]
+  out
 }
