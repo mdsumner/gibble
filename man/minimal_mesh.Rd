@@ -9,5 +9,5 @@
 \description{
 A testing data set, \code{minimal_mesh} composed of two MULTIPOLYGONs sharing one edge.
 Also available are \code{minimal_mesh_sp} and \code{minimal_mesh_sp_line} in
-\code{SpatialPolygonsDataFrame`` and}SpatialLinesDataFrame`` form, respectively.
+\code{SpatialPolygonsDataFrame`` and }SpatialLinesDataFrame`` form, respectively.
 }
