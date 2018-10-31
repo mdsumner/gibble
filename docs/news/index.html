@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>All news • gibble</title>
+<title>Changelog • gibble</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -18,13 +18,22 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Changelog" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +56,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">gibble</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">gibble</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.2</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -61,7 +74,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -73,6 +86,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -80,31 +94,57 @@
       
       </header>
 
-      <div class="row">
-
-  <div class="col-md-9">
+<div class="row">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Change log <small>All releases</small></h1>
+      <h1>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/mdsumner/gibble/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="contents">
+    <div id="gibble-0-1-2" class="section level1">
+<h1 class="page-header">
+<a href="#gibble-0-1-2" class="anchor"></a>gibble 0.1.2<small> Unreleased </small>
+</h1>
+<ul>
+<li><p>Fix gibble for PATH objects from silicate (when they are points).</p></li>
+<li><p>SpatialPoints was has object column, needed for silicate.</p></li>
+</ul>
+</div>
+    <div id="gibble-0-1-0" class="section level1">
+<h1 class="page-header">
+<a href="#gibble-0-1-0" class="anchor"></a>gibble 0.1.0<small> Unreleased </small>
+</h1>
+<ul>
+<li><p>Fixed multipoints for silicate, both sf and sp.</p></li>
+<li><p>Fixes for SpatialLines and SpatialMultiPoints, found in anglr.</p></li>
+</ul>
+</div>
+    <div id="gibble-0-0-2" class="section level1">
+<h1 class="page-header">
+<a href="#gibble-0-0-2" class="anchor"></a>gibble 0.0.2<small> 2018-02-05 </small>
+</h1>
+<ul>
+<li>Added <code>PATH</code>, <code>sp</code> , <code>trip</code> methods for <code>gibble</code>.</li>
+</ul>
+</div>
     <div id="gibble-0-0-1" class="section level1">
-<h1 class="hasAnchor">
-<a href="#gibble-0-0-1" class="anchor"></a>gibble 0.0.1</h1>
+<h1 class="page-header">
+<a href="#gibble-0-0-1" class="anchor"></a>gibble 0.0.1<small> 2017-09-08 </small>
+</h1>
 <ul>
 <li>First release</li>
 </ul>
 </div>
-    NA
-    </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#gibble-0-1-2">0.1.2</a></li>
+        <li><a href="#gibble-0-1-0">0.1.0</a></li>
+        <li><a href="#gibble-0-0-2">0.0.2</a></li>
         <li><a href="#gibble-0-0-1">0.0.1</a></li>
-        <li><a href="#NA">NA</a></li>
       </ul>
     </div>
   </div>
@@ -123,5 +163,8 @@
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

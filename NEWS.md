@@ -1,4 +1,4 @@
-# gibble 0.1.1.9001
+# gibble 0.1.2
 
 * Fix gibble for PATH objects from silicate (when they are points). 
 

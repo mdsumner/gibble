@@ -1,6 +1,10 @@
+New version of 'gibble' 0.1.2. 
+
+
 ## Test environments
-* ubuntu 14.04 (on travis-ci), R 3.4.3
-* win-builder (devel and release)
+* ubuntu 14.04 (on travis-ci), R 3.5.1
+* win-builder (devel)
+* macos on rhub (release)
 
 ## R CMD check results
 
@@ -8,4 +12,4 @@
 
 ## Reverse dependencies
 
-There are none
+The one revdep tabularaster passes check against this version. 
