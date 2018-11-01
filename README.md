@@ -9,6 +9,11 @@ Status](http://badges.herokuapp.com/travis/mdsumner/gibble?branch=master&env=BUI
 Status](https://ci.appveyor.com/api/projects/status/github/mdsumner/gibble?branch=master&svg=true)](https://ci.appveyor.com/project/mdsumner/gibble)
 [![Coverage
 Status](https://img.shields.io/codecov/c/github/mdsumner/gibble/master.svg)](https://codecov.io/github/mdsumner/gibble?branch=master)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/gibble)](https://cran.r-project.org/package=gibble)
+[![cran
+checks](https://cranchecks.info/badges/worst/gibble)](https://cran.r-project.org/web/checks/check_results_gibble.html)
+[![Downloads](http://cranlogs.r-pkg.org/badges/gibble?color=brightgreen)](http://www.r-pkg.org/pkg/gibble)
 
 # gibble
 
