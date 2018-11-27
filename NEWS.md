@@ -1,3 +1,7 @@
+# gibble dev
+
+* Add gibble methods for silicate `PATH` and `PATH0`. 
+
 # gibble 0.1.2
 
 * Fix gibble for PATH objects from silicate (when they are points). 
