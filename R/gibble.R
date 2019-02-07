@@ -40,15 +40,4 @@ gibble <- function(x, ...) UseMethod("gibble")
 #' @name gibble
 #' @export
 gibble.default <- function(x, ...) stop(sprintf("objects of type %s not supported", paste(class(x), collapse = ";")))
-#' @name gibble
-#' @export
-gibble.PATH <- function(x, ...) {
-  p <- x[["path"]]
-  out <- tibble::tibble(nrow = p[["ncoords_"]],
-                 ncol = p[["ncol"]],
-                 type = p[["type"]],
-                 #subobject = p[["subobject"]],
-                 object = p[["object"]])
-  if ("subobject" %in% names(p)) out[["subobject"]] <- p[["subobject"]]
-  out
-}
+

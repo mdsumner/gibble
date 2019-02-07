@@ -12,7 +12,10 @@ gibble.PATH0 <- function(x, ...) {
 #' @name gibble
 #' @export
 gibble.PATH <- function(x, ...) {
-  x[["path"]] %>%
+  path <- x[["path"]]
+  if (is.null(path[["ncol_"]])) path$ncol_ <- 2
+  if (is.null(path[["type"]])) path$type <- "PATH"
+  path %>%
     dplyr::transmute(ncol = .data$ncol_,
                      type = .data$type,
                      subobject = .data$subobject_,
@@ -20,3 +23,13 @@ gibble.PATH <- function(x, ...) {
                      path = .data$path_,
                      nrow = .data$ncoords_)
 }
+# gibble.PATH <- function(x, ...) {
+#   p <- x[["path"]]
+#   out <- tibble::tibble(nrow = p[["ncoords_"]],
+#                         ncol = p[["ncol"]],
+#                         type = p[["type"]],
+#                         #subobject = p[["subobject"]],
+#                         object = p[["object"]])
+#   if ("subobject" %in% names(p)) out[["subobject"]] <- p[["subobject"]]
+#   out
+# }
