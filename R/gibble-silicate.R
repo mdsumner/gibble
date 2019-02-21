@@ -1,9 +1,10 @@
 #' @name gibble
 #' @export
+#' @importFrom rlang .data
 gibble.PATH0 <- function(x, ...) {
   do.call(rbind, x$object$path_) %>%
     dplyr::rename(object = .data$object_, subobject = .data$subobject_, path = .data$path_) %>%
-    dplyr::group_by(object, subobject, path) %>%
+    dplyr::group_by(.data$object, .data$subobject, .data$path) %>%
     dplyr::summarize(nrow = dplyr::n()) %>%
     dplyr::ungroup() %>%
    ## FIXME  need to find geometric dimension from $vertex
