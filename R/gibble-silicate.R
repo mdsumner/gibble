@@ -3,7 +3,9 @@
 #' @importFrom rlang .data
 gibble.PATH0 <- function(x, ...) {
   do.call(rbind, x$object$path_) %>%
-    dplyr::rename(object = .data$object_, subobject = .data$subobject_, path = .data$path_) %>%
+    dplyr::rename(object = .data$object_,
+                  #subobject = .data$subobject_,
+                  path = .data$path_) %>%
     dplyr::group_by(.data$object, .data$subobject, .data$path) %>%
     dplyr::summarize(nrow = dplyr::n()) %>%
     dplyr::ungroup() %>%
@@ -17,7 +19,7 @@ gibble.PATH <- function(x, ...) {
   if (is.null(path[["ncol"]])) path$ncol <- 2
   if (is.null(path[["type"]])) path$type <- "PATH"
   if (is.null(path[["subobject"]])) {
-     path$subobject <- if (!is.null(path[["subobject_"]])) path$subobject_ else 1L
+     path$subobject <- 1L #if (!is.null(path[["subobject_"]])) path$subobject_ else 1L
   }
   if (is.null(path[["object"]])) {
     path$object <- if (!is.null(path[["object_"]])) as.integer(factor(path$object_)) else 1:nrow(path)
@@ -26,7 +28,7 @@ gibble.PATH <- function(x, ...) {
     path$nrow <- if (!is.null(path[["ncoords_"]])) path$ncoords_ else NA_integer_
   }
 
-## object_ path_ subobject_ ncoords_
+## object_ path_ subobject ncoords_
   path[c("nrow", "ncol", "type", "subobject", "object")]
 }
 # gibble.PATH <- function(x, ...) {
