@@ -72,8 +72,6 @@
 gibble(x, ...)
 
 \method{gibble}{default}(x, ...)
-
-\method{gibble}{PATH}(x, ...)
 }
 \arguments{
 \item{x}{geometry model}
