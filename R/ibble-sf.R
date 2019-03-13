@@ -8,7 +8,7 @@ ibble.LINESTRING  <- function(x, ...) {dm <- dim(unclass(x)); cbind(nrow = dm[1]
 
 ibble.MULTILINESTRING <- function(x, ...) {
   out <- do.call(rbind, lapply(unclass(x), ibble.MULTITHING))
-  out <- cbind(out, subobj =  1L)
+  out <- cbind(out, subobject =  1L)
   out[, "type"] <- 4L
   out
 }
