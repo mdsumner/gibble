@@ -3,7 +3,7 @@
 
 * ubuntu 14.04 (on travis-ci), R 3.5.3
 * win-builder (devel and release)
-
+* mac-os (release, via rhub)
 
 ## R CMD check results
 
