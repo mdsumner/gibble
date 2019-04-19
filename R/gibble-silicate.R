@@ -10,7 +10,8 @@ gibble.PATH0 <- function(x, ...) {
     dplyr::summarize(nrow = dplyr::n()) %>%
     dplyr::ungroup() %>%
    ## FIXME  need to find geometric dimension from $vertex
-   dplyr::mutate(ncol = 2L)  ## what about type? set to unknown if not present?
+   dplyr::mutate(ncol = 2L, type = "PATH") %>%   ## what about type? set to unknown if not present?
+    dplyr::select(.data$nrow, .data$ncol, .data$type, .data$subobject, .data$object)
 }
 #' @name gibble
 #' @export

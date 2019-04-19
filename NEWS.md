@@ -1,4 +1,4 @@
-# gibble dev
+# gibble 0.2.0
 
 * Add gibble methods for silicate `PATH` and `PATH0`. 
 
@@ -6,7 +6,7 @@
 
 * Fix gibble for PATH objects from silicate (when they are points). 
 
-* SpatialPoints was has object column, needed for silicate. 
+* SpatialPoints has object column, needed for silicate. 
 
 # gibble 0.1.0
 
