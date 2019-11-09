@@ -16,6 +16,16 @@
 #' @docType package
 NULL
 
+#' mpoly
+#'
+#' A testing data set, composed of two MULTIPOLYGONs, one is the manually constructed
+#' example from sf (and silicate::sfzoo$multipolygon), the second is South Australia, with
+#' many lake-islands in the main polygon, and one artifical hole in the Kangaroo Island polygon.
+#'
+#' @name mpoly
+#' @docType data
+NULL
+
 #' minimal mesh
 #'
 #' A testing data set, `minimal_mesh` composed of two MULTIPOLYGONs sharing one edge.

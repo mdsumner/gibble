@@ -1,3 +1,7 @@
+# gibble dev
+
+* New example data set `mpoly`. 
+
 # gibble 0.2.0
 
 * Add gibble methods for silicate `PATH` and `PATH0`. 
