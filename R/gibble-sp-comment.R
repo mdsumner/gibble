@@ -25,6 +25,7 @@
 #
 #
 # spm <- as(m, "Spatial")
+# gibble_cmt(spm)
 
 sp_cmt <- function(x, ...) {
   UseMethod("sp_cmt")
@@ -36,12 +37,11 @@ sp_cmt.SpatialPolygons <- function(x, ...) {
   unlist(lapply(x@polygons, sp_cmt))
 }
 
-#' the comment value in gibble form
+# the comment value in gibble form
 gibble_cmt <- function(x, ...) {
   l <- strsplit(sp_cmt(x), "\\s+", perl = TRUE)
   as.integer(unlist(l))
 }
-gibble_cmt(spm)
 
 ## convert
 
