@@ -1,5 +1,7 @@
 # gibble dev
 
+* Removed sp examples, functionality remains. 
+
 * New example data set `mpoly`. 
 
 # gibble 0.2.0

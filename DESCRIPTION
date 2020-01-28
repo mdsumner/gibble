@@ -1,6 +1,6 @@
 Package: gibble
 Title: Geometry Decomposition 
-Version: 0.2.0.9001
+Version: 0.3.0
 Authors@R: person("Michael", "Sumner", email = "mdsumner@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-2471-7511"))
 Description: Build a map of path-based geometry, this is a simple description of the number
  of parts in an object and their basic structure. Translation and restructuring operations for 
@@ -12,7 +12,7 @@ Depends: R (>= 3.3.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Imports: 
     dplyr,
     methods,
@@ -20,7 +20,6 @@ Imports:
     rlang
 Suggests: 
     covr,
-    sp,
     testthat
 URL: https://github.com/mdsumner/gibble
 BugReports: https://github.com/mdsumner/gibble/issues

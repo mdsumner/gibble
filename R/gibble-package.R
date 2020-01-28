@@ -29,10 +29,7 @@ NULL
 #' minimal mesh
 #'
 #' A testing data set, `minimal_mesh` composed of two MULTIPOLYGONs sharing one edge.
-#' Also available are `minimal_mesh_sp` and `minimal_mesh_sp_line` in
-#' `SpatialPolygonsDataFrame`` and `SpatialLinesDataFrame`` form, respectively.
 #' @name minimal_mesh
-#' @aliases minimal_mesh_sp minimal_mesh_sp_line
 #' @docType data
 NULL
 
@@ -45,8 +42,7 @@ NULL
 #' along a diagonal line where two objects meet and are joined by
 #' shared vertices that were inserted deliberately.
 #'
-#' `hsh` is the holey home in sp format and `hsh_sf` in sf format.
-#' @name hsh
-#' @aliases hsh_sf
+#'  `hsh_sf` is the holey home in sf format.
+#' @name hsh_sf
 #' @docType data
 NULL
