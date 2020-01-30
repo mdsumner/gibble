@@ -20,7 +20,10 @@ Imports:
     rlang
 Suggests: 
     covr,
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 URL: https://github.com/mdsumner/gibble
 BugReports: https://github.com/mdsumner/gibble/issues
 Roxygen: list(markdown = TRUE)
+VignetteBuilder: knitr

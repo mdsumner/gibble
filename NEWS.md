@@ -1,5 +1,7 @@
 # gibble 0.3.0
 
+* Vignette added to briefly describe the gibble. 
+
 * Removed sp examples, functionality remains. 
 
 * New example data set `mpoly`. 
