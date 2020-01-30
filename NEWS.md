@@ -1,4 +1,4 @@
-# gibble dev
+# gibble 0.3.0
 
 * Removed sp examples, functionality remains. 
 

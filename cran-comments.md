@@ -1,8 +1,8 @@
 
 ## Test environments
 
-* ubuntu 14.04 (on travis-ci), R 3.5.3
-* win-builder (devel and release)
+* ubuntu 18.04, R 3.6.2
+* win-builder (devel)
 
 
 ## R CMD check results
@@ -11,4 +11,4 @@
 
 ## Reverse dependencies
 
-The one revdep tabularaster passes check against this version. 
+The two revdeps silicate and tabularaster passes check against this version. 
