@@ -40,11 +40,26 @@ gibble.list <- function(x, ...) {
 #' @name gibble
 #' @export
 gibble.sfc <- function(x, ...) {
-  x <- tibble::as_tibble(ibble(x))
-  dplyr::mutate(x, type = names(types)[x$type])
+
+  xout <- tibble::as_tibble(ibble(x))
+
+   ## handle unknown type, which we presume is GEOMETRYCOLLECTION
+  if (xout[["type"]][1L] == 11L) {
+    classes <- unlist(lapply(x, function(xa) lapply(xa, function(xb) rev(class(xb))[2L])))
+    if (length(classes) == dim(xout)[1L]) {
+      xout[["type"]] <- classes
+    }
+  }
+
+  if (is.numeric(x[["type"]][1L])) {
+    xout[["type"]] <- names(types)[xout[["type"]]]
+  }
+
+  xout
 }
 #' @name gibble
 #' @export
 gibble.sf <- function(x, ...) {
   gibble(x[[attr(x, "sf_column")]])
 }
+

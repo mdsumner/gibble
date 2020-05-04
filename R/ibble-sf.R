@@ -1,4 +1,7 @@
-types <- c(POINT = 1L, MULTIPOINT = 2L, LINESTRING = 3L, MULTILINESTRING = 4L, POLYGON = 5L, MULTIPOLYGON = 6L, Polygons = 7L, Lines = 8L, Points = 9L, MultiPoints = 10L)
+types <- c(POINT = 1L, MULTIPOINT = 2L, LINESTRING = 3L,
+           MULTILINESTRING = 4L, POLYGON = 5L, MULTIPOLYGON = 6L,
+           Polygons = 7L, Lines = 8L, Points = 9L, MultiPoints = 10L,
+           UNKNOWN = 11L)
 
 ibble.POINT <- function(x, ...) cbind(nrow = 1, ncol = length(unclass(x)), type = 1L)
 ibble.MULTITHING <- function(x, ...) {dm <- dim(unclass(x)); if (is.null(dm)) {dm <- cbind(0, 0)};  cbind(nrow = dm[1L], ncol = dm[2], type = 2L)}
@@ -31,7 +34,18 @@ ibble.MULTIPOLYGON <- function(x, ...) {
   out[, "type"] <- 6L
   out
 }
-
+ibble.sfc_GEOMETRYCOLLECTION <- function(x, ...) {
+#  browser()
+    out <- do.call(rbind, lapply(seq_along(x), function(xi) do.call(rbind, lapply(unlist(x[[xi]], recursive = FALSE),
+                                                                   function(xa) cbind(ibble.LINESTRING(xa), object  = xi)))))
+    out[, "type"] <- 11L
+    out
+}
+ibble.GEOMETRYCOLLECTION <- function(x, ...) {
+  out <- do.call(rbind, lapply(x, function(xa) lapply(xa, ibble.POLYPART)))
+  out[, "type"] <- 11L
+  out
+}
 ibble.sfc <- function(x, ...) {
   x <- unclass(x)
   out <- do.call(rbind,lapply(seq_along(x), function(gi) cbind(ibble(x[[gi]]), object = gi)))

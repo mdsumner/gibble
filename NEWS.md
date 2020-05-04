@@ -1,3 +1,7 @@
+# gibble dev
+
+* Handle GEOMETRYCOLLECTION so we can catch triangles in silicate. 
+
 # gibble 0.3.0
 
 * Vignette added to briefly describe the gibble. 
