@@ -50,8 +50,7 @@ gibble.sfc <- function(x, ...) {
       xout[["type"]] <- classes
     }
   }
-
-  if (is.numeric(x[["type"]][1L])) {
+  if (is.numeric(xout[["type"]][1L])) {
     xout[["type"]] <- names(types)[xout[["type"]]]
   }
 
