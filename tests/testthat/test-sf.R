@@ -85,15 +85,15 @@ test_that("sp dispatch works", {
     expect_named(c("nrow", "ncol", "type"))
 })
 
-
-test_that("tests from silicate work", {
-  spobj <- minimal_mesh_sp
-  splineobj <- minimal_mesh_sp_line
-  gibble(spobj) %>% expect_s3_class("tbl_df")
-  gibble(splineobj) %>% expect_s3_class("tbl_df")
-
-  expect_that(gibble(hsh$line)$object, equals(c(1, 1, 1, 1, 1, 1, 2, 3, 3)))
-  #expect_that(gibble(MPS)$object, equals(c(1L, 2L, 3L)))
-
-}
-)
+#
+# test_that("tests from silicate work", {
+#   spobj <- minimal_mesh_sp
+#   splineobj <- minimal_mesh_sp_line
+#   gibble(spobj) %>% expect_s3_class("tbl_df")
+#   gibble(splineobj) %>% expect_s3_class("tbl_df")
+#
+#   expect_that(gibble(hsh$line)$object, equals(c(1, 1, 1, 1, 1, 1, 2, 3, 3)))
+#   #expect_that(gibble(MPS)$object, equals(c(1L, 2L, 3L)))
+#
+# }
+# )

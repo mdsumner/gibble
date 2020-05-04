@@ -1,14 +1,19 @@
 
 ## Test environments
 
-* ubuntu 14.04 (on travis-ci), R 3.5.3
-* win-builder (devel and release)
 * mac-os (release, via rhub)
+* ubuntu 18.04, R 3.6.2
+* win-builder (devel)
+
 
 ## R CMD check results
 
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 1 note
+
+The CRAN winbuilder check sometimes doesn't find a url in the readme:
+
+https://codecov.io/github/mdsumner/gibble?branch=master
 
 ## Reverse dependencies
 
-The one revdep tabularaster passes check against this version. 
+The two revdeps silicate and tabularaster passes check against this version. 
