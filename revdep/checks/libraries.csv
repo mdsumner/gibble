@@ -1,4 +1,4 @@
 package,old,new,delta
-gibble,0.2.0,0.3.0,*
-rlang,NA,0.4.4,*
-tidyselect,NA,1.0.0,*
+gibble,0.3.0,0.4.0,*
+pillar,NA,1.4.4,*
+rlang,NA,0.4.6,*

@@ -51,6 +51,7 @@ exprs_auto_name         Ensure that all elements of a list of
                         expressions are named
 f_rhs                   Get or set formula components
 f_text                  Turn RHS of formula into a string or label
+faq-options             Global options for rlang
 fn_body                 Get or set function body
 fn_env                  Return the closure environment of a function
 fn_fmls                 Extract arguments from a function

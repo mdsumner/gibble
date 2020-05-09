@@ -147,6 +147,7 @@ expr_label	expr_label
 expr_name	expr_label
 expr_print	expr_print
 expr_text	expr_label
+faq-options	faq-options
 flatten	flatten
 flatten_chr	flatten
 flatten_cpl	flatten

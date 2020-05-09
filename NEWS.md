@@ -1,4 +1,4 @@
-# gibble dev
+# gibble 0.4.0
 
 * Handle GEOMETRYCOLLECTION so we can catch triangles in silicate. 
 

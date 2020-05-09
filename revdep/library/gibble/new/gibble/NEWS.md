@@ -1,4 +1,10 @@
-# gibble dev
+# gibble 0.4.0
+
+* Handle GEOMETRYCOLLECTION so we can catch triangles in silicate. 
+
+# gibble 0.3.0
+
+* Vignette added to briefly describe the gibble. 
 
 * Removed sp examples, functionality remains. 
 

@@ -1,3 +1,11 @@
+# gibble 0.3.0
+
+* Vignette added to briefly describe the gibble. 
+
+* Removed sp examples, functionality remains. 
+
+* New example data set `mpoly`. 
+
 # gibble 0.2.0
 
 * Add gibble methods for silicate `PATH` and `PATH0`. 

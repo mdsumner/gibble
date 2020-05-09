@@ -1,0 +1,62 @@
+---
+title: "What is the gibble"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{What is the gibble}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(gibble)
+```
+
+The gibble package provides a basic unit of information about the structure of a
+spatial data set. The key idea is of a *part* of spatial data, and the ways
+these are arranged hierarchically in spatial formats.
+
+If we consider a very simple polygon layer, as understood by the sf package the
+structure is pretty simple. There are two objects (*features*), and the first of
+those has two parts - here we call them **paths**, because they are represented
+as a sequence of coordinates. 
+
+```R
+library(sf)
+plot(minimal_mesh)
+```
+
+![minimal](../man/figures/minimal_mesh.png)
+
+
+The `gibble()` function tells us about this structure
+
+```{r gibble}
+gibble(minimal_mesh)
+```
+
+and works on much more complicated data sets. 
+
+
+```{r}
+gibble(mpoly)
+```
+
+The `gibble()` function works for data in the formats used by
+[sf](https://CRAN.r-project.org/package=sf),
+[sp](https://CRAN.r-project.org/package=sp),
+[trip](https://CRAN.r-project.org/package=trip), and
+[silicate](https://CRAN.r-project.org/package=silicate). This eases the
+development of tools that work with these formats, because they all have the
+same underlying structure and we can find out the number of objects there are,
+how many paths those objects have, and how many coordinates each path includes
+without considering the way they are represented.
+
+
+

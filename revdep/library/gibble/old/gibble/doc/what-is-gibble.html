@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>What is the gibble</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">What is the gibble</h1>
+
+
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(gibble)</a></code></pre></div>
+<p>The gibble package provides a basic unit of information about the structure of a spatial data set. The key idea is of a <em>part</em> of spatial data, and the ways these are arranged hierarchically in spatial formats.</p>
+<p>If we consider a very simple polygon layer, as understood by the sf package the structure is pretty simple. There are two objects (<em>features</em>), and the first of those has two parts - here we call them <strong>paths</strong>, because they are represented as a sequence of coordinates.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(sf)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">plot</span>(minimal_mesh)</a></code></pre></div>
+<div class="figure">
+<img src="data:image/png;base64,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fc2aNampqQkJCVlZWW+88Ua7v0yvrxFMwRv2O19SUtLTTz9dVFQU4tesXbu2pqamqqrq+PHjc+fOzcjIyM3NtW3CSIXzGQkhXn755RUrVgghPB6PLXNFqbm52ePxFBUVJScn79q1a8mSJceOHRsxYsRNv0yvrxFMwbd6u8WaNWtaW1vb3Xm1tLT07du3pKQkLy9PCPHII48IIQoKCuweMUIhPiMhxPz58xctWvTwww/bO5QJRo0atX79+iVLlnz3X2r6NUKMOOKAqKqqamhoyM7Obvtpdnb2J598InckUzz11FPJyckzZ8585513ZM8Srn/84x9VVVVjx4696d879WuE0DjigKivrxdC9OzZs+2nvXv3rqurkzqRCX72s58NHDgwISHhz3/+87333lteXv796qmmubl56dKljz76aFpa2k3/yZFfI3SKQEPccsstQoi6urpevXoJIa5cuWKEQF9z585t+4cnnniirKysuLhY8UC3tLQsWbKkf//+7f496478GqFTHHFADB8+PCEh4ejRo20/PXLkSEZGhtyRzBUfH+/3+2VPEUpra2t+fn4wGNy+fbvX6/3+L3D81wjtItDO19ra2tTU5Pf7/X5/U1NTa2tr278vKCh48803hRBdunRZunTp008/XVtbe/DgwZ07d65cuVLqyJ3o9DNqaGjYsWPHuXPnLl68WFBQUFJSMn/+fKkjh+L3+5cvX15bW7tt27a2z8j47UTfrxHMEYTTrVu37rtf8ccff7zt399zzz3r1q1r++erV68uWbIkISFh0KBBL730krxhw9LpZ1RXV5ebm9u7d++EhITx48cXFxdLnbcTX3755U3Pyt/97ndt/0nfrxFMwcvsAEBRHHEAgKIINAAoikADgKL+Dz5YW63hzKH+AAAAAElFTkSuQmCC" alt="minimal" />
+<p class="caption">minimal</p>
+</div>
+<p>The <code>gibble()</code> function tells us about this structure</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">gibble</span>(minimal_mesh)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; # A tibble: 3 x 5</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt;    nrow  ncol type         subobject object</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;chr&gt;            &lt;int&gt;  &lt;int&gt;</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; 1     8     2 MULTIPOLYGON         1      1</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; 2     6     2 MULTIPOLYGON         1      1</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; 3     5     2 MULTIPOLYGON         1      2</span></a></code></pre></div>
+<p>and works on much more complicated data sets.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">gibble</span>(mpoly)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; # A tibble: 61 x 5</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;     nrow  ncol type         subobject object</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;    &lt;int&gt; &lt;int&gt; &lt;chr&gt;            &lt;int&gt;  &lt;int&gt;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;  1     6     2 MULTIPOLYGON         1      1</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;  2     4     2 MULTIPOLYGON         1      1</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt;  3     5     2 MULTIPOLYGON         2      1</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt;  4     5     2 MULTIPOLYGON         2      1</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt;  5     4     2 MULTIPOLYGON         3      1</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt;  6  4434     2 MULTIPOLYGON         1      2</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;  7   158     2 MULTIPOLYGON         1      2</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;  8   707     2 MULTIPOLYGON         1      2</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;  9   968     2 MULTIPOLYGON         1      2</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt; 10  1405     2 MULTIPOLYGON         1      2</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt; # … with 51 more rows</span></a></code></pre></div>
+<p>The <code>gibble()</code> function works for data in the formats used by <a href="https://CRAN.r-project.org/package=sf">sf</a>, <a href="https://CRAN.r-project.org/package=sp">sp</a>, <a href="https://CRAN.r-project.org/package=trip">trip</a>, and <a href="https://CRAN.r-project.org/package=silicate">silicate</a>. This eases the development of tools that work with these formats, because they all have the same underlying structure and we can find out the number of objects there are, how many paths those objects have, and how many coordinates each path includes without considering the way they are represented.</p>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

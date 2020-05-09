@@ -22,8 +22,6 @@ gibble.SpatialMultiPoints	gibble
 gibble.SpatialPoints	gibble
 gibble.SpatialPolygons	gibble
 gibble.trip	gibble
-hsh	hsh
-hsh_sf	hsh
+hsh_sf	hsh_sf
 minimal_mesh	minimal_mesh
-minimal_mesh_sp	minimal_mesh
-minimal_mesh_sp_line	minimal_mesh
+mpoly	mpoly

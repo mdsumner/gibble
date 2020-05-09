@@ -1,4 +1,34 @@
 
+# rlang 0.4.6
+
+* `!!!` now uses a combination of `length()`, `names()`, and `[[` to splice
+  S3 and S4 objects. This produces more consistent behaviour than `as.list()`
+  on a wider variety of vector classes (#945, tidyverse/dplyr#4931).
+
+
+# rlang 0.4.5
+
+* `set_names()`, `is_formula()`, and `names2()` are now implemented in
+  C for efficiency.
+
+* The `.data` pronoun now accepts symbol subscripts (#836).
+
+* Quosure lists now explicitly inherit from `"list"`. This makes them
+  compatible with the vctrs package (#928).
+
+* All rlang options are now documented in a centralised place, see
+  `?rlang::faq-options` (#899, @smingerson).
+
+* Fixed crash when `env_bindings_are_lazy()` gets improper arguments (#923).
+
+* `arg_match()` now detects and suggests possible typos in provided
+  arguments (@jonkeane, #798).
+
+* `arg_match()` now gives an error if argument is of length greater
+  than 1 and doesn't exactly match the values input, similar to base
+  `match.arg` (#914, @AliciaSchep)
+
+
 # rlang 0.4.4
 
 * Maintenance release for CRAN.

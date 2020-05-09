@@ -1,18 +1,13 @@
 
 ## Test environments
 
-* mac-os (release, via rhub)
-* ubuntu 18.04, R 3.6.2
-* win-builder (devel)
+* ubuntu 18.04, R 3.6.3
+* win-builder (devel and release)
 
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
-
-The CRAN winbuilder check sometimes doesn't find a url in the readme:
-
-https://codecov.io/github/mdsumner/gibble?branch=master
+0 errors | 0 warnings | 0 notes
 
 ## Reverse dependencies
 
