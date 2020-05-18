@@ -1,10 +1,7 @@
-pandoc: 2.3.1
-<<<<<<< HEAD
-pkgdown: 1.3.0
-=======
-pkgdown: 1.4.1
->>>>>>> a04d8afd67772dd4eaa5ab1459c40b8f4d234bbd
+pandoc: 2.9.2.1
+pkgdown: 1.5.1
 pkgdown_sha: ~
 articles:
   what-is-gibble: what-is-gibble.html
+last_built: 2020-05-18T13:08Z
 
